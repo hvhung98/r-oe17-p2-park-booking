@@ -1,0 +1,6 @@
+name_max: 15
+email_max: 30
+phone_max: 15
+total_position_min: 1
+price_min: 1
+pass_min: 6
