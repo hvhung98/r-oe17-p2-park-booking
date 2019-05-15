@@ -1,8 +1,7 @@
-
 class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
-      t.string :email,              null: false, default: ""
+      t.string :email, null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       t.string   :reset_password_token
@@ -11,8 +10,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.datetime :remember_created_at
       t.references :role, foreign_key: true, default: 1
       t.string :name
-      t.integer :score
-      t.string :phone_number
+      t.integer :score, default: 10
+      t.string :phone_number, default: ""
 
       t.timestamps null: false
     end

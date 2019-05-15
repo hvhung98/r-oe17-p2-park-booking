@@ -59,7 +59,7 @@ RSpec.describe Parking, type: :model do
     it {is_expected.to have_db_index(:user_id)}
     it {is_expected.to have_db_column(:name).of_type(:string)}
     it {is_expected.to have_db_column(:description).of_type(:text)}
-    it {is_expected.to have_db_column(:waiting_time).of_type(:time)}
+    it {is_expected.to have_db_column(:waiting_time).of_type(:string)}
     it {is_expected.to have_db_column(:total_position).of_type(:integer)}
     it {is_expected.to have_db_column(:avail_position).of_type(:integer)}
     it {is_expected.to have_db_column(:longitude).of_type(:decimal)}

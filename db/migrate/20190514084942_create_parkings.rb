@@ -3,13 +3,13 @@ class CreateParkings < ActiveRecord::Migration[5.2]
     create_table :parkings do |t|
       t.references :user, foreign_key: true
       t.string :name
-      t.time :waiting_time
+      t.string :waiting_time
       t.text :description
       t.integer :total_position
       t.integer :avail_position
       t.decimal :longitude, :precision => 10, :scale => 7
       t.decimal :latitude, :precision => 10, :scale => 7
-      t.boolean :status
+      t.boolean :status, default: true
       t.string :address
       t.time :time_open
       t.time :time_close

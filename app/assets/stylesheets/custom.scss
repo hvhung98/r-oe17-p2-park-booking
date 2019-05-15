@@ -19,31 +19,31 @@
 
 /*flash*/
 .alert-error {
-    background-color: $hong_nhat_91;
-    border-color: $hong_nhat_88;
-    color: $do_sam_50;
-    text-align: left;
+  background-color: $white91;
+  border-color: $white88;
+  color: $white50;
+  text-align: left;
 }
 
 .alert-alert {
-    background-color: $hong_nhat_91;
-    border-color: $hong_nhat_88;
-    color: $do_sam_50;
-    text-align: left;
+  background-color: $white91;
+  border-color: $white88;
+  color: $white50;
+  text-align: left;
 }
 
 .alert-success {
-    background-color: $xanh_nhat_89;
-    border-color: $xanh_nhat_85;
-    color: $xanh_dam_40;
-    text-align: left;
+  background-color: $green89;
+  border-color: $green85;
+  color: $green40;
+  text-align: left;
 }
 
 .alert-notice {
-    background-color: $xanh_nhat_89;
-    border-color: $xanh_nhat_85;
-    color: $xanh_dam_40;
-    text-align: left;
+  background-color: $green89;
+  border-color: $green85;
+  color: $green40;
+  text-align: left;
 }
 
 #error_explanation {
@@ -65,11 +65,11 @@
 .form-control {
   background: white;
   box-shadow: none !important;
-  border-color: $trang_xam_89;
+  border-color: $gray89;
 }
 
 .form-control:focus {
-  border-color: $da_troi_61;
+  border-color: $blue61;
 }
 
 .form-control, .btn {
@@ -81,12 +81,12 @@
 }
 
 .login-form form {
-  color: $xam_48;
+  color: $gray48;
   border-radius: 2px;
   margin-bottom: 15px;
   font-size: 13px;
-  background: $trang_xam_93;
-  box-shadow: 0px 2px 2px $den_0_3;
+  background: $gray93;
+  box-shadow: 0px 2px 2px $black0_3;
   padding: 30px;
   position: relative;
 }
@@ -106,9 +106,9 @@
   height: 95px;
   border-radius: 50%;
   z-index: 9;
-  background: $da_troi_61;
+  background: $blue61;
   padding: 15px;
-  box-shadow: 0px 2px 2px $den_0_1;
+  box-shadow: 0px 2px 2px $black0_1;
 }
 
 .login-form .avatar img {
@@ -122,13 +122,13 @@
 .login-form .btn {
   font-size: 16px;
   font-weight: bold;
-  background: $da_troi_61;
+  background: $blue61;
   border: none;
   margin-bottom: 20px;
 }
 
 .login-form .btn:hover, .login-form .btn:focus {
-  background: $da_troi_52;
+  background: $blue52;
   outline: none !important;
 }
 
@@ -142,12 +142,18 @@
 }
 
 .login-form form a {
-  color: $xam_48;
+  color: $gray48;
   text-decoration: none;
 }
 
 .login-form form a:hover {
   text-decoration: underline;
+}
+
+.btn-google {
+  background: $tomato !important;
+  text-decoration: none !important;
+  color: white !important;
 }
 
 /*sign_up*/
@@ -157,21 +163,21 @@
 }
 
 .input-group-addon {
-  border-color: $trang_xam_88;
+  border-color: $gray88;
 }
 
 .signup-form form {
-  color: $xam_48;
+  color: $gray48;
   border-radius: 2px;
   margin-bottom: 15px;
   font-size: 13px;
-  background: $trang_xam_93;
-  box-shadow: 0px 2px 2px $den_0_3;
+  background: $gray93;
+  box-shadow: 0px 2px 2px $black0_3;
   padding: 30px;
 }
 
 .signup-form h2 {
-  color: $xam_20;
+  color: $gray20;
   font-weight: bold;
   margin-top: 0;
 }
@@ -192,13 +198,13 @@
 .signup-form .btn{
   font-size: 16px;
   font-weight: bold;
-  background: $da_troi_38;
+  background: $blue38;
   border: none;
   min-width: 140px;
 }
 
 .signup-form .btn:hover, .signup-form .btn:focus {
-  background: $da_troi_35;
+  background: $blue35;
   outline: none;
 }
 
@@ -217,7 +223,7 @@
 }
 
 .forgot_pw-form h2 {
-  color: $xam_20;
+  color: $gray20;
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -225,12 +231,12 @@
 .forgot_pw-form .btn{
   font-size: 16px;
   font-weight: bold;
-  background: $da_troi_38;
+  background: $blue38;
   border: none;
 }
 
 .forgot_pw-form .btn:hover, .forgot_pw-form .btn:focus {
-  background: $da_troi_35;
+  background: $blue35;
   outline: none;
 }
 
@@ -241,7 +247,7 @@
 }
 
 .separator {
-  border-right: 1px solid $trang_xam_88;
+  border-right: 1px solid $gray88;
 }
 
 .box-pw {
@@ -251,11 +257,11 @@
 .change_pw-form .btn {
   font-size: 16px;
   font-weight: bold;
-  background: $da_troi_38;
+  background: $blue38;
   border: none;
 }
 
 .change_pw-form .btn:hover, .change_pw-form .btn:focus {
-  background: $da_troi_35;
+  background: $blue35;
   outline: none;
 }
