@@ -1,6 +1,7 @@
 <% if current_user %>
   <%= link_to t("layouts.logout"), destroy_user_session_path, method: :delete %>
   <%= link_to t("homes.change_profile"), edit_user_registration_path %>
+  <%= link_to t("parkings.add_park"), new_user_parking_path(current_user) %>
 <% else %>
   <%= link_to t("sessions.login"), new_user_session_path %><br>
   <%= link_to t("homes.sign_in_with_google"), user_google_oauth2_omniauth_authorize_path %><br>

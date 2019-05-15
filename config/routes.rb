@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   root "homes#index"
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
-  resources :users, only: %i(show)
-  resources :users do
-    resources :parkings
+  resources :users, only: %i(show) do
+    resources :parkings, except: %i(index)
   end
+  concern :paginatable do
+    get "(page/:page)", action: :index, on: :collection, as: ""
+  end
+  resources :parkings, only: %i(index), concerns: :paginatable
 end

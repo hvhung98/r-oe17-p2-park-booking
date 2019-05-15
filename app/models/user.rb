@@ -14,8 +14,6 @@ class User < ApplicationRecord
   validates :email, presence: true, length:
     { maximum: Settings.email_max }, format: { with: VALID_EMAIL_REGEX },
       uniqueness: { case_sensitive: false }
-  VALID_PHONE =  /(09|01[2|6|8|9])+([0-9]{8})\b/
-  validates :phone_number, length: { maximum: Settings.phone_max }, format: {with: VALID_PHONE}
 
   class << self
     def from_omniauth(access_token)
@@ -29,6 +27,11 @@ class User < ApplicationRecord
       user
     end
   end
+
+  def current_user? user
+    self == user
+  end
+
   private
 
   def downcase_email

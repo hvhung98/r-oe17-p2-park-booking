@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_05_14_085135) do
     t.integer "avail_position"
     t.decimal "longitude", precision: 10, scale: 7
     t.decimal "latitude", precision: 10, scale: 7
-    t.boolean "status", default: true
+    t.string "status", default: "Mở cửa"
     t.string "address"
     t.time "time_open"
     t.time "time_close"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2019_05_14_085135) do
     t.bigint "role_id", default: 1
     t.string "name"
     t.integer "score", default: 10
-    t.string "phone_number"
+    t.string "phone_number", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -9,12 +9,11 @@ class CreateParkings < ActiveRecord::Migration[5.2]
       t.integer :avail_position
       t.decimal :longitude, :precision => 10, :scale => 7
       t.decimal :latitude, :precision => 10, :scale => 7
-      t.boolean :status, default: true
+      t.string :status, default: "Mở cửa"
       t.string :address
       t.time :time_open
       t.time :time_close
       t.integer :price
-
       t.timestamps
     end
   end
