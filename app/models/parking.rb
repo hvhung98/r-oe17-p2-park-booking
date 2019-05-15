@@ -5,7 +5,7 @@ class Parking < ApplicationRecord
 
 
   validates :name, presence: true, length: { maximum: Settings.name_max },
-   uniqueness: true
+    uniqueness: true
   validates :total_position, presence: true, numericality: { greater_than: Settings.total_position_min}
   validates :longitude, presence:true
   validates :latitude, presence:true

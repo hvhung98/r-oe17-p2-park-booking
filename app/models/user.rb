@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   belongs_to :role
   has_one :parking
   has_many :orders, dependent: :destroy
@@ -8,7 +7,8 @@ class User < ApplicationRecord
   before_save :downcase_email
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :name, presence: true, length: { maximum: Settings.name_max }, uniqueness: true
+  validates :name, presence: true, length: { maximum: Settings.name_max },
+    uniqueness: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length:
     { maximum: Settings.email_max }, format: { with: VALID_EMAIL_REGEX },

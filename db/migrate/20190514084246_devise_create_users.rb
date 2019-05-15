@@ -9,7 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.datetime :reset_password_sent_at
 
       t.datetime :remember_created_at
-      t.references :role
+      t.references :role, foreign_key: true, default: 1
       t.string :name
       t.integer :score
       t.string :phone_number

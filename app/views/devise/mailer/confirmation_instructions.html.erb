@@ -1,0 +1,5 @@
+<p><%= t "sessions.welcome" %> <%= @email %>!</p>
+
+<p><%= t "sessions.confirm_email" %></p>
+
+<p><%= link_to t("sessions.confirm_account"), confirmation_url(@resource, confirmation_token: @token) %></p>
