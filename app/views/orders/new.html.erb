@@ -1,0 +1,45 @@
+<div id="new-order" class="mainbox col-md-8 col-md-offset-2
+  col-sm-8 col-sm-offset-2">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <div class="panel-title"><%= t "orders.new_order" %></div>
+    </div>
+    <div class="panel-body">
+      <%= form_for [@orderable, @order] do |f| %>
+        <%= f.label :car_number, t("orders.car_number") %>
+        <%= f.text_field :car_number, class: "form-control" %><br>
+        <%= f.select :type_booked, [t("orders.date_booked"),
+          t("orders.month_booked")], {prompt: t("orders.type_booked")},
+          class: "form-control", onChange: "check(this.value)" %><br>
+        <div id="date_booked">
+          <%= f.datetime_field :day_booked %><br>
+          <p class="require_fill"><%= t "orders.require_date_booked" %>
+          <%= l(@orderable.time_open, format: :hour_minute_half_day) %> - <%= l(@orderable.time_close, format: :hour_minute_half_day) %>)</p>
+        </div>
+        <div id="year_booked">
+          <button type="button" class="btn btn-danger"
+            onclick="select_year('now')"><%= Time.now.year %></button>
+          <button type="button" class="btn btn-danger"
+            onclick="select_year('next')"><%= Time.now.year+1 %></button>
+        </div><br>
+        <div id="now_year">
+          <% (Time.now.month+1..12).each do |month| %>
+            <%= f.check_box :month_booked, {multiple: true}, month, false %>
+            <%= f.label t("orders.month") + "#{month}" %><br><br>
+          <% end %>
+        </div>
+        <div id="next_year">
+          <% (1..12).each do |month| %>
+            <%= f.check_box :month_booked, {multiple: true}, month, false %>
+            <%= f.label t("orders.month") + "#{month}" %><br><br>
+          <% end %>
+        </div>
+        <%= f.submit t("parkings.confirm"), class: "btn btn-primary" %>
+        <%= link_to t("parkings.cancel"), root_url,
+          class: "btn btn-warning btn-cancel" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "booked_order", "data-turbolink-track": "reload" %>

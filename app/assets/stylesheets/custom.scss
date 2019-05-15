@@ -17,6 +17,14 @@
   margin-right: 7px
 }
 
+.add_park_btn {
+  margin-top: 8px;
+}
+
+.dropdown_profile {
+  margin-left: 20px;
+}
+
 /*flash*/
 .alert-error {
   background-color: $white91;
@@ -305,7 +313,9 @@ li.search-item {
 
 .search-form {
   display: table;
-  width: 500px;
+  float: right;
+  margin-right: 20px;
+  width: 400px;
   background-color: white;
   padding: 0;
   .form-group {
@@ -352,7 +362,12 @@ li {
   list-style-type: none;
 }
 
+#latitude, #longitude {
+  display: none;
+}
+
 /* social-button-share */
+
 .social-share-button .ssb-icon {
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -366,6 +381,146 @@ li {
   top: 0px;
 }
 
-#latitude, #longitude {
+/*Profile_user*/
+
+.profile_img {
+  width: 240px !important;
+  height: 160px !important;
+}
+
+.profile-img{
+  text-align: center;
+}
+
+.profile-img img{
+  width: 70%;
+  height: 100%;
+}
+
+.profile-img .file {
+  position: relative;
+  overflow: hidden;
+  margin-top: -20%;
+  width: 70%;
+  border: none;
+  border-radius: 0;
+  font-size: 15px;
+  background: $black15;
+}
+
+.profile-img .file input {
+  position: absolute;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
+
+.profile-head h5{
+  color: $gray20;
+}
+
+.profile-edit-btn{
+  border: none;
+  border-radius: 1.5rem;
+  width: 70%;
+  padding: 6% 8%;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  background-color: $tomato;
+  cursor: pointer;
+}
+
+.profile-edit-btn:hover, .profile-edit-btn:focus {
+  text-decoration: none;
+  color: white;
+}
+
+.proile-rating{
+  font-size: 12px;
+  color: $gray51;
+  margin-top: 5%;
+}
+
+.proile-rating span{
+  color: $gray31;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.profile-head .nav-tabs{
+  margin-bottom:5%;
+}
+
+.profile-head .nav-tabs .nav-link{
+  font-weight:600;
+  border: none;
+}
+
+.profile-head .nav-tabs .nav-link.active{
+  border: none;
+  border-bottom:2px solid $blue40;
+}
+
+.profile-work{
+  padding: 14%;
+  margin-top: -15%;
+}
+
+.profile-work p{
+  font-size: 12px;
+  color: $gray51;
+  font-weight: 600;
+  margin-top: 10%;
+}
+
+.profile-work a{
+  text-decoration: none;
+  color: $gray31;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.profile-work ul{
+  list-style: none;
+}
+
+.profile-tab label{
+  font-weight: 600;
+}
+
+.profile-tab p{
+  font-weight: 600;
+  color: $blue40;
+}
+
+#edit_user {
+  .btn_cancel {
+    margin-left: 3%;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.current_img {
+  position: relative;
+  top: -25px;
+  right: -110px;
+  font-weight: 100;
+}
+
+/*Order_new*/
+
+#date_booked, #year_booked, #now_year, #next_year {
+  display: none;
+}
+
+.require_fill {
+  color: red;
+}
+
+/*Order_index*/
+
+.status_order {
   display: none;
 }

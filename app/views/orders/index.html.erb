@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <% if @orderable.class.name == "User" %>
+        <th><%= t "parkings.name_park" %></th>
+      <% else %>
+        <th><%= t "layouts.customer" %></th>
+      <% end %>
+      <th><%= t "orders.type_booked" %></th>
+      <th><%= t "orders.deadline_date" %></th>
+      <th><%= t "orders.time_booked" %></th>
+      <th><%= t "total_price" %></th>
+      <th><%= t "orders.status_order" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @orders %>
+    <%= paginate @orders, theme: "twitter-bootstrap-3" %>
+  </tbody>
+</table>

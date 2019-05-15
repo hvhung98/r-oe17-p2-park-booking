@@ -31,6 +31,7 @@ gem "rails_admin", "~> 1.3"
 gem "underscore-rails", "~> 1.8", ">= 1.8.3"
 gem "social-share-button"
 gem "i18n-js"
+gem "paperclip", "~> 6.0.0"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

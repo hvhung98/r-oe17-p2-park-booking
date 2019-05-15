@@ -12,7 +12,16 @@
     <h4><%= t "parkings.price" %><%= number_to_currency(@parking.price) %></h4><br>
     <p id="latitude"><%= @parking.latitude %></p>
     <p id="longitude"><%= @parking.longitude %></p>
-    <% if can? :update, @parking %>
+    <% if !@parking.user.current_user?(current_user) %>
+      <% if user_signed_in? && @orders.last.present? &&
+        (@orders.last.booked? || @orders.last.sending?) %>
+        <h4 class="alert alert-success"><%= t "orders.status_sending" %></h4><br>
+      <% elsif can? :create, Order || @orders.last.nil? ||
+        @orders.last.sended? || @orders.last.canceled? %>
+        <%= link_to t("orders.new_order") + " - #{@parking.avail_position}",
+          new_parking_order_path(@parking), class: "btn btn-info" %><br>
+      <% end %>
+    <% else %>
       <%= link_to edit_user_parking_path(@user, @parking),
         class: "btn btn-primary btn-edit-park" do %>
         <span class="glyphicon glyphicon-edit"></span>

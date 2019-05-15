@@ -3,6 +3,15 @@ require "rails_helper"
 RSpec.describe UsersController, type: :controller do
   let(:role) {FactoryBot.create(:role, id: 1)}
   let(:user) {FactoryBot.create(:user, role_id: role.id)}
+
+  before {
+    sign_in user
+  }
+
+  describe "before action" do
+    it {is_expected.to use_before_action :authenticate_user!}
+  end
+
   describe "GET users#show" do
     context "with valid id" do
       it "assigns the requested user to @user" do
