@@ -1,0 +1,6 @@
+<b><%= t "parkings.name_park" %></b><%= link_to name, user_parking_path(place.user_id, place) %><br>
+<b><%= t "parkings.address" %></b><%= address %><br>
+<b><%= t "parkings.avail_position" %></b><%= avail_position %><br>
+<b><%= t "parkings.price" %></b><%= number_to_currency(price) %><br><br>
+<button type="button" class="btn btn-info"
+  onclick="calculateRoute(<%= place.latitude %>, <%= place.longitude %>)"><%= t "parkings.find_road" %></button>

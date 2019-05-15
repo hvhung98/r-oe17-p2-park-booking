@@ -11,8 +11,8 @@ class CreateParkings < ActiveRecord::Migration[5.2]
       t.decimal :latitude, :precision => 10, :scale => 7
       t.string :status, default: "Mở cửa"
       t.string :address
-      t.time :time_open, default: "00:00:00"
-      t.time :time_close, default: "23:59:59"
+      t.time :time_open
+      t.time :time_close
       t.integer :price
       t.timestamps
     end

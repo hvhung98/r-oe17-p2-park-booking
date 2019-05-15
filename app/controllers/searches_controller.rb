@@ -7,5 +7,4 @@ class SearchesController < ApplicationController
       format.html
     end
   end
-
 end

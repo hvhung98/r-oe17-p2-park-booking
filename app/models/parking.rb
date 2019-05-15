@@ -12,4 +12,5 @@ class Parking < ApplicationRecord
   validates :address, presence: true
   validates :price, presence: true, numericality: { greater_than: Settings.price_min}
   scope :order_by_time, -> {order created_at: :desc}
+  geocoded_by :address
 end

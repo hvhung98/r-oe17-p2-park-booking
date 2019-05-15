@@ -21,7 +21,6 @@ RSpec.describe Order, type: :model do
   context "associations" do
     it {is_expected.to belong_to :parking}
     it {is_expected.to belong_to :user}
-    it {is_expected.to have_many :time_orders}
   end
 
    context "column" do

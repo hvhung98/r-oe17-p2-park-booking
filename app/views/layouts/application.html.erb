@@ -11,6 +11,8 @@
     <div class="container">
       <%= render "layouts/messages" %>
       <%= yield %>
+      <%= javascript_include_tag "header", "data-turbolinks-track": "reload" %>
+      <%= javascript_include_tag "searchbox", "data-turbolinks-track": "reload" %>
     </div>
   </body>
 </html>

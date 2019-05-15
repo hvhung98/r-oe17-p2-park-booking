@@ -4,3 +4,5 @@ phone_max: 15
 total_position_min: 1
 price_min: 1
 pass_min: 6
+width_height_marker: 40
+distance_find_park: 10

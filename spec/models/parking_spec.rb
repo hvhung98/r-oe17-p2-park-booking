@@ -37,7 +37,7 @@ RSpec.describe Parking, type: :model do
     it {is_expected.to validate_presence_of(:longitude)}
   end
 
-   context "address" do
+  context "address" do
     it {is_expected.to validate_presence_of(:address)}
   end
 
