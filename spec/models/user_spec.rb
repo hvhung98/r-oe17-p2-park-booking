@@ -38,22 +38,6 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context "phone_number" do
-    it {is_expected.to validate_length_of(:phone_number).is_at_most(Settings.phone_max)}
-    context "invalid" do
-      emails = %w[0adasdasd 123124235 0319241824 0235235]
-      emails.each do |invalid_phone_number|
-        it {is_expected.not_to allow_value(invalid_phone_number).for(:phone_number)}
-      end
-    end
-    context "valid" do
-      emails = %w[0963740311 01688283507 0972642734]
-      emails.each do |valid_phone_number|
-        it {is_expected.to allow_value(valid_phone_number).for(:phone_number)}
-      end
-    end
-  end
-
   context "password" do
     context "valid" do
       it {is_expected.to validate_length_of(:password).is_at_least(Settings.pass_min)}

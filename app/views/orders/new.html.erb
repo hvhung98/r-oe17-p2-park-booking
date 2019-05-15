@@ -1,0 +1,44 @@
+<div id="new-order" class="mainbox col-md-8 col-md-offset-2
+  col-sm-8 col-sm-offset-2">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <div class="panel-title">Đặt chỗ gửi xe</div>
+    </div>
+    <div class="panel-body">
+      <%= form_for [@parking, @order] do |f| %>
+        <%= f.label :car_number, "Biển số xe" %>
+        <%= f.text_field :car_number, class: "form-control" %><br>
+        <%= f.select :type_booked, ["Đặt theo ngày", "Đặt theo tháng"],
+          {prompt: "Thể loại đặt"}, class: "form-control",
+          onChange: "check(this.value)" %><br>
+        <div id="date_booked" style="display: none">
+          <%= f.datetime_field :day_booked %><br><br>
+        </div>
+        <div id="month_booked" style="display: none">
+          <% (Time.now.month..12).each do |month| %>
+            <%= f.check_box :month_booked, {multiple: true}, month, false %>
+            <%= f.label "Tháng " + "#{month}" %><br><br>
+          <% end %>
+        </div>
+        <%= f.submit "Xác nhận", class: "btn btn-primary" %>
+        <%= link_to "Huỷ bỏ", root_url, class: "btn btn-warning", style: "margin-left: 3%; padding-left: 15px; padding-right: 15px" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  function check(value) {
+    if(value == "Đặt theo ngày") {
+      $("#date_booked").show();
+      $("#month_booked").hide();
+    } else if(value == "Đặt theo tháng") {
+      $("#date_booked").hide();
+      $("#month_booked").show();
+    } else {
+      $("#month_booked").hide();
+      $("#date_booked").hide();
+    }
+  }
+</script>
+

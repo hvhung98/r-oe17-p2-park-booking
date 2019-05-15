@@ -1,5 +1,7 @@
 {
   "name": "park_booking",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "raty-js": "^2.9.0"
+  }
 }

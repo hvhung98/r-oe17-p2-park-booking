@@ -1,0 +1,18 @@
+<p>Xin chao</p>
+<% @orders.each do |order| %>
+  <% if order.status != "Đã gửi" %>
+    <p><%= order.user.name %></p><br>
+    <p><%= order.parking.name %></p><br>
+    <p><%= order.price %></p><br>
+    <p><%= order.type_booked %></p><br>
+    <%= form_for [@parking, order] do |f| %>
+      <% if order.status == "Đã đặt" %>
+        <%= f.text_field :status, value: order.status, style: "display: none" %>
+        <%= f.submit order.status, class: "btn btn-info" %>
+      <% elsif order.status == "Đang gửi" %>
+        <%= f.text_field :status, value: order.status, style: "display: none" %>
+        <%= f.submit order.status, class: "btn btn-success" %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

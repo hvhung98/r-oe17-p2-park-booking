@@ -65,7 +65,7 @@ RSpec.describe Parking, type: :model do
     it {is_expected.to have_db_column(:longitude).of_type(:decimal)}
     it {is_expected.to have_db_column(:latitude).of_type(:decimal)}
     it {is_expected.to have_db_column(:address).of_type(:string)}
-    it {is_expected.to have_db_column(:status).of_type(:boolean)}
+    it {is_expected.to have_db_column(:status).of_type(:string)}
     it {is_expected.to have_db_column(:price).of_type(:integer)}
     it {is_expected.to have_db_column(:time_open).of_type(:time)}
     it {is_expected.to have_db_column(:time_close).of_type(:time)}

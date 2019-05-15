@@ -1,0 +1,57 @@
+<h1>Xin chao <%= @user.name %></h1>
+<h3>Đánh giá trung bình: </h3>
+<div class="average-review-rating" data-score="<%= @average_review %>"></div>
+<span>(dựa trên <%= @parking.reviews.count %> đánh giá)</span><br><br>
+<p><%= @parking.waiting_time %></p><br>
+<p><%= @parking.description %></p><br>
+<p><%= @parking.total_position %></p><br>
+<% if @parking.user == current_user %>
+  <%= link_to "Số vị trí còn trống - " + "#{@parking.avail_position}",
+    parking_orders_path(@parking) %><br>
+<% else %>
+  <% if @order.present? && ((@order.status == "Đã đặt") ||
+    (@order.status == "Đang gửi")) %>
+    <p class="text-success">Bạn đã đăng ký gửi xe ở đây</p><br>
+  <% elsif ((@order.nil?) || (current_user.score > 1 && @order.status == "Đã gửi")) %>
+    <%= link_to "Gửi xe - " + "#{@parking.avail_position}",
+      new_parking_order_path(@parking), class: "btn btn-info" %><br>
+  <% end %>
+<% end %>
+<p><%= @parking.longitude %></p><br>
+<p><%= @parking.latitude %></p><br>
+<p><%= @parking.address %></p><br>
+<p><%= @parking.time_open.strftime("%I:%M %P") %></p><br>
+<p><%= @parking.time_close.strftime("%I:%M %P") %></p><br>
+<p><%= @parking.price %> VNĐ</p><br>
+<%= social_share_button_tag(@parking.name) %><br><br>
+<div>
+  <%= render @parking.reviews %>
+  <% if @review.nil? && @order.present? && @order.status == "Đã gửi" %>
+    <%= link_to "Thêm review", new_parking_review_path(@parking) %>
+  <% end %>
+</div>
+<% if can? :update, @parking %>
+  <%= link_to "Cập nhật bãi đỗ", edit_user_parking_path(@user, @parking) %>
+<% end %>
+<% if can? :destroy, @parking %>
+  <%= link_to "Xóa bãi đỗ", user_parking_path(@user, @parking), data:
+    {confirm: "Xác nhận xóa?"} %>
+<% end %>
+
+<script>
+  $(".review-rating").raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr("data-score");
+    },
+    path: "/assets/"
+  });
+
+  $(".average-review-rating").raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr("data-score");
+    },
+    path: "/assets/"
+  });
+</script>

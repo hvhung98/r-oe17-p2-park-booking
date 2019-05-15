@@ -1,0 +1,6 @@
+<b>Tên bãi đỗ: </b><%= link_to name, user_parking_path(parking.user_id, parking) %><br>
+<b>Địa chỉ: </b><%= address %><br>
+<b>Số vị trí còn trống: </b><%= avail_position %><br>
+<b>Giá (VNĐ - Theo ngày)</b><%= price %><br><br>
+<button type="button" class="btn btn-info"
+  onclick="calculateRoute(<%= parking.latitude %>, <%= parking.longitude %>)">Chỉ đường</button>

@@ -21,6 +21,14 @@ gem "rails-i18n"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
+gem "cancancan"
+gem "kaminari"
+gem "bootstrap-kaminari-views"
+gem "gmaps4rails"
+gem "geocoder"
+gem "underscore-rails", "~> 1.8", ">= 1.8.3"
+gem "social-share-button"
+gem "rails_admin", "~> 1.3"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
@@ -29,6 +37,7 @@ group :development, :test do
   gem "ffaker"
   gem "shoulda-matchers", "~> 3.1"
   gem "database_cleaner"
+  gem "rails-controller-testing"
 end
 
 group :development do

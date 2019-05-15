@@ -1,0 +1,9 @@
+<div class="review-rating" data-score="<%= review.rating %>"></div>
+<p><%= review.comment %></p>
+<% if user_signed_in? %>
+  <% if review.user == current_user %>
+    <%= link_to "Chỉnh sửa", edit_parking_review_path(review.parking, review) %>
+    <%= link_to "Xóa", parking_review_path(review.parking, review), method: :delete,
+      data: {confirm: "Are you sure?"} %>
+  <% end %>
+<% end %>

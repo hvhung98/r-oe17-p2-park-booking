@@ -57,3 +57,54 @@ en:
   homes:
     change_profile: "Thay đổi thông tin cá nhân"
     sign_in_with_google: "Đăng nhập bằng tài khoản google"
+  parkings:
+    not_find_park: "Bãi đỗ không hợp lệ"
+    create_park_success: "Tạo bãi đỗ thành công"
+    create_park_fail: "Tạo bãi đỗ thất bại"
+    open_status: "Mở cửa"
+    close_status: "Đóng cửa"
+    update_park_success: "Cập nhật bãi đỗ thành công"
+    update_park_fail: "Cập nhật bãi đỗ thất bại"
+    del_park_success: "Xóa bãi đỗ thành công"
+    del_park_fail: "Đã có lỗi khi xóa bãi đỗ"
+    edit_park: "Chỉnh sửa bãi đỗ"
+    name_park: "Tên bãi đỗ"
+    waiting_time: "Thời gian chờ"
+    option1: "30 phút"
+    option2: "45 phút"
+    option3: "60 phút"
+    option4: "75 phút"
+    description: "Giới thiệu"
+    total_position: "Tổng số vị trí"
+    latitude: "Vĩ độ"
+    longitude: "Kinh độ"
+    address: "Địa chỉ"
+    time_open: "Thời gian mở cửa"
+    time_close: "Thời gian đóng cửa"
+    status_park: "Trạng thái bãi đỗ"
+    price: "Giá cả (VNĐ - Tính theo ngày)"
+    confirm: "Xác nhận"
+    cancel: "Huỷ bỏ"
+    add_park: "Thêm bãi đỗ"
+    update_park: "Cập nhật bãi đỗ"
+    del_park: "Xóa bãi đỗ"
+    confirm_del_park: "Xác nhận xóa?"
+  time:
+    formats:
+      hour_minute_half_day: "%I:%M %P"
+  views:
+    pagination:
+      first: "&laquo; Trang đầu"
+      last: "Trang cuối &raquo;"
+      preview: "&lsaquo; Trang trước"
+      next: "Trang sau &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying %{entry_name} <b>%{first} - %{last}</b> of <b>%{total}</b> in total"

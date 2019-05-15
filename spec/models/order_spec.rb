@@ -21,7 +21,6 @@ RSpec.describe Order, type: :model do
   context "associations" do
     it {is_expected.to belong_to :parking}
     it {is_expected.to belong_to :user}
-    it {is_expected.to have_many :time_orders}
   end
 
    context "column" do
@@ -29,6 +28,7 @@ RSpec.describe Order, type: :model do
     it {is_expected.to have_db_index(:parking_id)}
     it {is_expected.to have_db_column(:user_id).of_type(:integer)}
     it {is_expected.to have_db_index(:user_id)}
+    it {is_expected.to have_db_column(:car_number).of_type(:string)}
     it {is_expected.to have_db_column(:status).of_type(:string)}
     it {is_expected.to have_db_column(:price).of_type(:integer)}
 

@@ -6,3 +6,25 @@
   <%= link_to t("homes.sign_in_with_google"), user_google_oauth2_omniauth_authorize_path %><br>
   <%= link_to t("sessions.signup"), new_user_registration_path %>
 <% end %>
+
+
+<%= form_for @place do |f| %>
+  <%= f.text_field :latitude, class: "form-control", id: "latitude" %>
+  <%= f.text_field :longitude, class: "form-control", id: "longitude" %>
+  <%= f.submit "Tìm bãi đỗ quanh đây", class: "btn btn-info" %>
+<% end %>
+
+<script>
+  $(document).ready(function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      console.log("Định vị địa lý không được hỗ trợ bởi trình duyệt này");
+    }
+  })
+
+  function showPosition(position) {
+    $("#latitude").val(position.coords.latitude);
+    $("#longitude").val(position.coords.longitude);
+  }
+</script>
