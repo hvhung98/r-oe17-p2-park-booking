@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2019_05_14_085135) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.bigint "role_id"
+    t.bigint "role_id", default: 1
     t.string "name"
     t.integer "score"
     t.string "phone_number"
@@ -85,4 +85,5 @@ ActiveRecord::Schema.define(version: 2019_05_14_085135) do
   add_foreign_key "orders", "users"
   add_foreign_key "parkings", "users"
   add_foreign_key "time_orders", "orders"
+  add_foreign_key "users", "roles"
 end

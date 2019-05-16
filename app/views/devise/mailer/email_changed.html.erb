@@ -1,0 +1,6 @@
+<p><%= t "sessions.hello" %> <%= @email %>!</p>
+<% if @resource.try(:unconfirmed_email?) %>
+  <p><%= t "sessions.message_change_email" %> <%= @resource.unconfirmed_email %>.</p>
+<% else %>
+  <p><%= t "sessions.message_changed_email" %> <%= @resource.email %>.</p>
+<% end %>
