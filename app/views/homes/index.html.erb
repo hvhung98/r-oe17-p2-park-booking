@@ -1,7 +1,8 @@
 <% if current_user %>
-  <%= link_to "Sign Out", destroy_user_session_path, method: :DELETE %>
-  <%= link_to "Change profile", edit_user_registration_path %>
+  <%= link_to t("layouts.logout"), destroy_user_session_path, method: :delete %>
+  <%= link_to t("homes.change_profile"), edit_user_registration_path %>
 <% else %>
-  <%= link_to "Sign In", new_user_session_path %><br>
-  <%= link_to "Sign Up", new_user_registration_path %>
+  <%= link_to t("sessions.login"), new_user_session_path %><br>
+  <%= link_to t("homes.sign_in_with_google"), user_google_oauth2_omniauth_authorize_path %><br>
+  <%= link_to t("sessions.signup"), new_user_registration_path %>
 <% end %>

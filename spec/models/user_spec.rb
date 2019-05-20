@@ -16,7 +16,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-   context "email" do
+  context "email" do
     it {is_expected.to validate_presence_of :email}
     it {is_expected.to validate_length_of(:email).is_at_most(Settings.email_max)}
     context "invalid" do
@@ -38,24 +38,23 @@ RSpec.describe User, type: :model do
     end
   end
 
-    context "phone_number" do
-      it {is_expected.to validate_presence_of :phone_number}
-      it {is_expected.to validate_length_of(:phone_number).is_at_most(Settings.phone_max)}
-      context "invalid" do
-        emails = %w[0adasdasd 123124235 0319241824 0235235]
-        emails.each do |invalid_phone_number|
-          it {is_expected.not_to allow_value(invalid_phone_number).for(:phone_number)}
-        end
-      end
-      context "valid" do
-        emails = %w[0963740311 01688283507 0972642734]
-        emails.each do |valid_phone_number|
-          it {is_expected.to allow_value(valid_phone_number).for(:phone_number)}
-        end
+  context "phone_number" do
+    it {is_expected.to validate_length_of(:phone_number).is_at_most(Settings.phone_max)}
+    context "invalid" do
+      emails = %w[0adasdasd 123124235 0319241824 0235235]
+      emails.each do |invalid_phone_number|
+        it {is_expected.not_to allow_value(invalid_phone_number).for(:phone_number)}
       end
     end
+    context "valid" do
+      emails = %w[0963740311 01688283507 0972642734]
+      emails.each do |valid_phone_number|
+        it {is_expected.to allow_value(valid_phone_number).for(:phone_number)}
+      end
+    end
+  end
 
-   context "password" do
+  context "password" do
     context "valid" do
       it {is_expected.to validate_length_of(:password).is_at_least(Settings.pass_min)}
     end
@@ -65,14 +64,14 @@ RSpec.describe User, type: :model do
     end
   end
 
-   context "associations" do
+  context "associations" do
     it {is_expected.to belong_to :role}
     it {is_expected.to have_many :orders}
     it {is_expected.to have_one :parking}
     it {is_expected.to have_many :parkings}
   end
 
-   context "column" do
+  context "column" do
     it {is_expected.to have_db_column(:role_id).of_type(:integer)}
     it {is_expected.to have_db_index(:role_id)}
     it {is_expected.to have_db_column(:name).of_type(:string)}
@@ -85,7 +84,7 @@ RSpec.describe User, type: :model do
 
   end
 
-   describe "#downcase_email" do
+  describe "#downcase_email" do
     before :each do
       subject.email = "ADMIN123@GMAIL.COM"
     end

@@ -26,13 +26,13 @@ ActiveRecord::Schema.define(version: 2019_05_14_085135) do
   create_table "parkings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name"
-    t.time "waiting_time"
+    t.string "waiting_time"
     t.text "description"
     t.integer "total_position"
     t.integer "avail_position"
     t.decimal "longitude", precision: 10, scale: 7
     t.decimal "latitude", precision: 10, scale: 7
-    t.boolean "status"
+    t.boolean "status", default: true
     t.string "address"
     t.time "time_open"
     t.time "time_close"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 2019_05_14_085135) do
     t.datetime "remember_created_at"
     t.bigint "role_id", default: 1
     t.string "name"
-    t.integer "score"
+    t.integer "score", default: 10
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

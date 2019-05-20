@@ -11,6 +11,7 @@ en:
     login: "Đăng nhập"
     email: "Email"
     pw: "Mật khẩu"
+    login_with: "Đăng nhập bằng"
     remember_pw: "Nhớ mật khẩu"
     password: "passwords"
     registration: "registrations"
@@ -53,3 +54,6 @@ en:
     resend_unlock_instruc: "Resend unlock instructions"
   users:
     not_find_user: "Người dùng không hợp lệ"
+  homes:
+    change_profile: "Thay đổi thông tin cá nhân"
+    sign_in_with_google: "Đăng nhập bằng tài khoản google"
