@@ -1,0 +1,15 @@
+<li class="search-item">
+  <%= link_to user_parking_path(parking.user, parking) do %>
+    <div class="col-md-9">
+      <div class="row">
+        <strong><%= parking.address %></strong>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <%= parking.name %>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+  <% end %>
+</li>
