@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root "homes#index"
+  get "search(/:search)", to: "searches#index", as: :search
   devise_for :users, controllers: {omniauth_callbacks: "users/omniauth_callbacks"}
   resources :users, only: %i(show) do
     resources :parkings, except: %i(index)

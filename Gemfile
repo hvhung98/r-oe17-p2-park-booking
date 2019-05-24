@@ -29,6 +29,7 @@ gem "geocoder"
 gem "underscore-rails", "~> 1.8", ">= 1.8.3"
 gem "social-share-button"
 gem "rails_admin", "~> 1.3"
+gem "ransack"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
