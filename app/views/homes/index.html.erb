@@ -1,13 +1,3 @@
-<% if current_user %>
-  <%= link_to t("layouts.logout"), destroy_user_session_path, method: :delete %>
-  <%= link_to t("homes.change_profile"), edit_user_registration_path %>
-<% else %>
-  <%= link_to t("sessions.login"), new_user_session_path %><br>
-  <%= link_to t("homes.sign_in_with_google"), user_google_oauth2_omniauth_authorize_path %><br>
-  <%= link_to t("sessions.signup"), new_user_registration_path %>
-<% end %>
-
-
 <%= form_for @place do |f| %>
   <%= f.text_field :latitude, class: "form-control", id: "latitude" %>
   <%= f.text_field :longitude, class: "form-control", id: "longitude" %>

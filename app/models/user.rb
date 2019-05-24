@@ -17,6 +17,9 @@ class User < ApplicationRecord
     { maximum: Settings.email_max }, format: { with: VALID_EMAIL_REGEX },
       uniqueness: { case_sensitive: false }
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   class << self
     def from_omniauth(access_token)
       data = access_token.info

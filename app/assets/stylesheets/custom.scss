@@ -77,7 +77,7 @@
 }
 
 .login-form {
-  margin-top: 200px;
+  margin-top: 50px;
 }
 
 .login-form form {
@@ -159,7 +159,7 @@
 /*sign_up*/
 
 .signup-form {
-  margin-top: 80px;
+  margin-top: 0px;
 }
 
 .input-group-addon {
@@ -219,7 +219,7 @@
 /*forgot_pw*/
 
 .forgot_pw-form {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .forgot_pw-form h2 {
@@ -243,7 +243,7 @@
 /*change_pw*/
 
 .change_pw-form {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .separator {
@@ -266,6 +266,7 @@
   outline: none;
 }
 
+
 .btn-cancel {
   margin-left: 3%;
   padding-left: 15px;
@@ -273,8 +274,9 @@
 }
 
 #map {
-  width: 800px;
-  height: 400px;
+  width: 1000px;
+  height: 600px;
+  margin-bottom: 100px;
 }
 
 #latitude, #longitude {
@@ -286,8 +288,8 @@
   background-repeat: no-repeat !important;
   background-size: 44px 46px !important;
   display: inline-block !important;
-  height: 50px !important;
-  width: 60px !important;
+  height: 40px !important;
+  width: 50px !important;
 }
 .social-share-button {
   right: 1px;
@@ -401,4 +403,57 @@
 .profile-tab p{
   font-weight: 600;
   color: #0062cc;
+}
+
+/*search*/
+
+.scrollable-menu {
+  height: auto;
+  max-height: 500px;
+  overflow-x: hidden;
+}
+
+li.search-item {
+  height: 75px;
+  margin: 10px;
+  &:hover {
+    background-color: $blue1;
+    cursor:pointer;
+  }
+  a:link {
+   color:inherit;
+  }
+}
+
+#livesearch {
+  a {
+    color: #66757f;
+  }
+}
+
+.search-form {
+  border-radius: 20px;
+  display: table;
+  float: right;
+  width: 400px;
+  background-color: white;
+  padding: 0;
+  .form-group {
+    display: table-cell;
+    width: 100%;
+    .form-control {
+      width: 100%;
+    }
+  }
+  button {
+    display: table-cell;
+    width: 50px;
+  }
+  margin-right: 30px;
+}
+
+.dropdown-menu {
+  padding: 0;
+  border: none;
+  width: 100%;
 }

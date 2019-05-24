@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_parking
   before_action :set_order, only: %i(show edit update)
-
+  before_action :authenticate_user!
   def index
     if current_user = @parking.user
       @orders = @parking.orders
@@ -56,8 +56,11 @@ class OrdersController < ApplicationController
     else
       @order = @parking.orders.build(order_params)
       @order.day_booked = Time.now + 3*86400
-      @order.price = @parking.price
       @order.type_booked = params[:order][:type_booked]
+      if params[:order][:month_booked].count > 1
+        @price = (params[:order][:month_booked].count)*@parking.price*30
+        @order.price = @price - ((10*@price)/100)
+      end
       @order.car_number = params[:order][:car_number]
       @order.user_id = current_user.id
       if @order.save

@@ -4,7 +4,16 @@ class ParkingsController < ApplicationController
   before_action :authenticate_user!, except: %i(index show)
 
   def index
-    @parkings = Parking.all.page(params[:page]).per(1)
+    q = params[:search]
+    if q
+      @parkings = Parking.search(name_or_address_cont: q).result.page(params[:page]).per(5)
+    else
+      @parkings = Parking.all.page(params[:page]).per(5)
+    end
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def new
@@ -77,7 +86,7 @@ class ParkingsController < ApplicationController
   end
 
   def set_user
-    @user = User.find_by(id: params[:user_id])
+    @user = User.friendly.find(params[:user_id])
     if @user.nil?
       flash[:danger] = t("users.not_find_user")
       redirect_to root_url

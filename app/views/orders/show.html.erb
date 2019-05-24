@@ -1,8 +1,11 @@
-<p>XIn chao</p>
-<p><%= @order.parking_id %></p><br>
-<p><%= @order.user_id %></p><br>
-<p><%= @order.type_booked %></p><br>
-<p><%= @order.day_booked %></p><br>
-<p><%= @order.month_booked %></p><br>
-<p><%= @order.price %></p>
-<p><%= @order.status %></p>
+<p>Bãi đỗ: <%= @order.parking.name %></p><br>
+<p>Loại đặt gửi: <%= @order.type_booked %></p><br>
+<% if @order.type_booked == "Đặt theo tháng" %>
+  <p>Hạn thanh toán: <%= (@order.day_booked + @order.parking.waiting_time.split(" ").first.to_i*60).getlocal("+07:00") %></p><br>
+  <p>Đặt tháng: <%= @order.month_booked %></p><br>
+<% else %>
+  <p>Hạn thanh toán: <%= (@order.day_booked + @order.parking.waiting_time.split(" ").first.to_i*60).getlocal("+07:00") %></p><br>
+  <p>Ngày đặt: <%= @order.day_booked.getlocal("+07:00") %></p>
+<% end %>
+<p>Tổng tiền: <%= @order.price %></p>
+<p>Trạng thái: <%= @order.status %></p>

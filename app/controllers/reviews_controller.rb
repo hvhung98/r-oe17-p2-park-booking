@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :set_parking
   before_action :set_review, only: %i(edit update destroy)
+  before_action :authenticate_user!
 
   def new
     @review = @parking.reviews.build

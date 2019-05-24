@@ -1,10 +1,11 @@
-<h1>Xin chao <%= @user.name %></h1>
+<h2 style="color: blue"><%= @parking.name %></h2><br>
+<%= social_share_button_tag(@parking.name) %><br>
 <h3>Đánh giá trung bình: </h3>
 <div class="average-review-rating" data-score="<%= @average_review %>"></div>
 <span>(dựa trên <%= @parking.reviews.count %> đánh giá)</span><br><br>
-<p><%= @parking.waiting_time %></p><br>
-<p><%= @parking.description %></p><br>
-<p><%= @parking.total_position %></p><br>
+<p>Thời gian chờ: <%= @parking.waiting_time %></p><br>
+<p>Mô tả: <%= @parking.description %></p><br>
+<p>Tổng vị trí: <%= @parking.total_position %></p><br>
 <% if @parking.user == current_user %>
   <%= link_to "Số vị trí còn trống - " + "#{@parking.avail_position}",
     parking_orders_path(@parking) %><br>
@@ -17,13 +18,10 @@
       new_parking_order_path(@parking), class: "btn btn-info" %><br>
   <% end %>
 <% end %>
-<p><%= @parking.longitude %></p><br>
-<p><%= @parking.latitude %></p><br>
-<p><%= @parking.address %></p><br>
-<p><%= @parking.time_open.strftime("%I:%M %P") %></p><br>
-<p><%= @parking.time_close.strftime("%I:%M %P") %></p><br>
-<p><%= @parking.price %> VNĐ</p><br>
-<%= social_share_button_tag(@parking.name) %><br><br>
+<p>Địa chỉ: <%= @parking.address %></p><br>
+<p>Thời gian mở cửa: <%= @parking.time_open.strftime("%I:%M %P") %></p><br>
+<p>Thời gian đóng cửa: <%= @parking.time_close.strftime("%I:%M %P") %></p><br>
+<p>Giá cả (VNĐ - Tính theo ngày): <%= @parking.price %> VNĐ</p><br>
 <div>
   <%= render @parking.reviews %>
   <% if @review.nil? && @order.present? && @order.status == "Đã gửi" %>
