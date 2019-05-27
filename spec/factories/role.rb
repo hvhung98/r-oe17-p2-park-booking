@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :role do
-    name {"baidoxe"}
+    id {1}
+    name {"normal"}
   end
 end

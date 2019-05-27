@@ -1,0 +1,11 @@
+<p><%= parking.name %></p><br>
+<p><%= parking.waiting_time %></p><br>
+<p><%= parking.description %></p><br>
+<p><%= parking.total_position %></p><br>
+<p><%= parking.avail_position %></p><br>
+<p><%= parking.longitude %></p><br>
+<p><%= parking.latitude %></p><br>
+<p><%= parking.address %></p><br>
+<p><%= l(parking.time_open, format: :hour_minute_half_day) %></p><br>
+<p><%= l(parking.time_close, format: :hour_minute_half_day) %></p><br>
+<p><%= number_to_currency(parking.price) %></p><br>

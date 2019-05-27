@@ -1,0 +1,19 @@
+<h1><%= @user.name %></h1>
+<p><%= @parking.name %></p><br>
+<p><%= @parking.waiting_time %></p><br>
+<p><%= @parking.description %></p><br>
+<p><%= @parking.total_position %></p><br>
+<p><%= @parking.avail_position %></p><br>
+<p><%= @parking.longitude %></p><br>
+<p><%= @parking.latitude %></p><br>
+<p><%= @parking.address %></p><br>
+<p><%= l(@parking.time_open, format: :hour_minute_half_day) %></p><br>
+<p><%= l(@parking.time_close, format: :hour_minute_half_day) %></p><br>
+<p><%= number_to_currency(@parking.price) %></p><br>
+<% if can? :update, @parking %>
+  <%= link_to t("parkings.update_park"), edit_user_parking_path(@user, @parking) %>
+<% end %>
+<% if can? :destroy, @parking %>
+  <%= link_to t("parkings.del_park"), user_parking_path(@user, @parking),
+    method: :delete, data: {confirm: t("parkings.confirm_del_park")} %>
+<% end %>
