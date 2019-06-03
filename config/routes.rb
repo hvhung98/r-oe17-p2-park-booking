@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     get "(page/:page)", action: :index, on: :collection, as: ""
   end
   resources :parkings, only: %i(index), concerns: :paginatable
+   get "search(/:search)", to: "searches#index", as: :search
 end

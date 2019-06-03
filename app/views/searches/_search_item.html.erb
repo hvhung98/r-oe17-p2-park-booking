@@ -1,0 +1,14 @@
+<li class="search-item">
+  <%= link_to [parking.user, parking] do %>
+    <div class="col-md-9">
+      <div class="row">
+        <strong><%= parking.name %></strong>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <%= parking.address %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</li>

@@ -7,6 +7,7 @@ en:
     park_booking: "Park Booking"
     application:
       title: "Parking"
+    search: "Tìm kiếm ..."
   sessions:
     login: "Đăng nhập"
     email: "Email"
@@ -90,6 +91,8 @@ en:
     update_park: "Cập nhật bãi đỗ"
     del_park: "Xóa bãi đỗ"
     confirm_del_park: "Xác nhận xóa?"
+  searches:
+    no_result: "Không tìm thấy kết quả cho"
   time:
     formats:
       hour_minute_half_day: "%I:%M %P"
