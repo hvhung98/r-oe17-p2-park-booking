@@ -25,6 +25,8 @@ gem "cancancan"
 gem "kaminari"
 gem "bootstrap-kaminari-views"
 gem "ransack"
+gem "rails_admin", "~> 1.3"
+
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

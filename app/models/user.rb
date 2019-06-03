@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_one :parking
   has_many :orders, dependent: :destroy
   has_many :parkings, through: :orders
+  has_many :reviews
 
   before_save :downcase_email
   devise :database_authenticatable, :registerable,
