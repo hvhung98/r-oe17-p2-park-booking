@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2019_05_14_085135) do
     t.bigint "parking_id"
     t.bigint "user_id"
     t.string "status"
+    t.string "type_booked"
+    t.string "car_number"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

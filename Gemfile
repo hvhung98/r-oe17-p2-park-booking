@@ -24,6 +24,7 @@ gem "uglifier", ">= 1.3.0"
 gem "cancancan"
 gem "kaminari"
 gem "bootstrap-kaminari-views"
+gem "ransack"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

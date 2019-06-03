@@ -1,0 +1,14 @@
+<% if @items.blank? %>
+  <li>
+    <%= link_to search_path(params[:search]),
+      class: "btn btn-default btn-block" do %>
+      <%= t "searches.no_result" %> <%= "#{params[:search]}" %>
+    <% end %>
+  </li>
+<% else %>
+  <div class="scrollable-menu">
+    <% @items.each do |item| %>
+        <%= render "searches/search_item", parking: item %>
+    <% end %>
+  </div>
+<% end %>
