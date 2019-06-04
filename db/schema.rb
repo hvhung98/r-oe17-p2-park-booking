@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_14_085135) do
+ActiveRecord::Schema.define(version: 2019_06_03_092922) do
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "parking_id"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 2019_05_14_085135) do
     t.decimal "latitude", precision: 10, scale: 7
     t.string "status", default: "Mở cửa"
     t.string "address"
-    t.time "time_open"
-    t.time "time_close"
+    t.time "time_open", default: "2000-01-01 00:00:00"
+    t.time "time_close", default: "2000-01-01 23:59:59"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,19 +51,21 @@ ActiveRecord::Schema.define(version: 2019_05_14_085135) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "parking_id"
+    t.integer "rating"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parking_id"], name: "index_reviews_on_parking_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "time_orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "order_id"
-    t.string "type"
-    t.datetime "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_time_orders_on_order_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -86,6 +88,7 @@ ActiveRecord::Schema.define(version: 2019_05_14_085135) do
   add_foreign_key "orders", "parkings"
   add_foreign_key "orders", "users"
   add_foreign_key "parkings", "users"
-  add_foreign_key "time_orders", "orders"
+  add_foreign_key "reviews", "parkings"
+  add_foreign_key "reviews", "users"
   add_foreign_key "users", "roles"
 end
