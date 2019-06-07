@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 2019_06_03_092922) do
     t.decimal "latitude", precision: 10, scale: 7
     t.string "status", default: "Mở cửa"
     t.string "address"
-    t.time "time_open", default: "2000-01-01 00:00:00"
-    t.time "time_close", default: "2000-01-01 23:59:59"
+    t.time "time_open"
+    t.time "time_close"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

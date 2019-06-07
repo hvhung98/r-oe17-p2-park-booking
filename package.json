@@ -1,5 +1,7 @@
 {
   "name": "park_booking",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "i18n-js": "^3.3.0"
+  }
 }

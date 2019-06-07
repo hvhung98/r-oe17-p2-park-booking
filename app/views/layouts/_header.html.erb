@@ -17,6 +17,9 @@
             <%= current_user.name %> <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
+            <% if current_user.role_id == 2 %>
+              <li><%= link_to t("layouts.admin_page"), rails_admin_path %></li>
+            <% end %>
             <li><%= link_to t("layouts.profile_page"), current_user %></li>
             <li><%= link_to t("layouts.logout"), destroy_user_session_path, method: :delete %></li>
           </ul>

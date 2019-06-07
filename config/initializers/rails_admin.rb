@@ -1,7 +1,6 @@
 RailsAdmin.config do |config|
-
   config.authorize_with do
-    unless user_signed_in? and current_user.role_id == 2
+    unless user_signed_in? && current_user.role_id == 2
       redirect_to main_app.root_path
       flash[:danger] = "Bạn không phải là admin"
     end
@@ -14,16 +13,16 @@ RailsAdmin.config do |config|
     list do
       include_fields :name, :email, :phone_number, :score, :role
       fields :name do
-          label "Tên"
+        label "Tên"
       end
       fields :phone_number do
-          label "Số điện thoại"
+        label "Số điện thoại"
       end
       fields :score do
-          label "Uy tín"
+        label "Uy tín"
       end
       fields :role do
-          label "Quyền"
+        label "Quyền"
       end
     end
   end
@@ -106,17 +105,24 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard
     index
+    new do
+      only ["Role"]
+    end
 
     export do
       except ["Role"]
     end
 
     bulk_delete do
-      only ["Review"]
+      only ["Role"]
     end
     show
-    show_in_app do
-      only ["User", "Parking", "Order"]
+    edit do
+      only ["Role"]
     end
+    delete do
+      only ["Role"]
+    end
+    show_in_app
   end
 end

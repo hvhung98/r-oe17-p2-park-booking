@@ -1,0 +1,9 @@
+<div id="map">
+</div>
+<script type="text/javascript">
+  var hash = <%= raw @hash.to_json %>;
+  var my_ps = <%= raw @my_position.to_json %>;
+  var lati = <%= @place.latitude %>;
+  var longi = <%= @place.longitude %>;
+</script>
+<%= javascript_include_tag "near_park_map", "data-turbolink-track": "reload" %>

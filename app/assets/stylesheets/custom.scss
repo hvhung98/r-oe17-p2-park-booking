@@ -77,7 +77,7 @@
 }
 
 .login-form {
-  margin-top: 200px;
+  margin-top: 100px;
 }
 
 .login-form form {
@@ -159,7 +159,7 @@
 /*sign_up*/
 
 .signup-form {
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .input-group-addon {
@@ -272,6 +272,11 @@
   padding-right: 15px;
 }
 
+#map {
+  width: 800px;
+  height: 400px;
+}
+
 /* search */
 
 .scrollable-menu {
@@ -284,7 +289,7 @@ li.search-item {
   height: 75px;
   margin: 10px;
   &:hover {
-    background-color: #ecf0f1;
+    background-color: $white94;
     cursor:pointer;
   }
   a:link {
@@ -294,14 +299,14 @@ li.search-item {
 
 #livesearch {
   a {
-    color: #66757f;
+    color: $gray45;
   }
 }
 
 .search-form {
   display: table;
   width: 500px;
-  background-color: #fff;
+  background-color: white;
   padding: 0;
   .form-group {
     display: table-cell;
@@ -310,14 +315,57 @@ li.search-item {
       width: 100%;
     }
   }
-    button {
-      display: table-cell;
-      width: 70px;
-    }
+  button {
+    display: table-cell;
+    width: 70px;
+  }
 }
 
 .dropdown-menu {
   padding: 0;
   border: none;
   width: 100%;
+}
+
+#map_show {
+  width: 600px;
+  height: 400px;
+  margin-top: 20px;
+}
+
+#detail_park {
+  margin-left: 70px;
+  margin-bottom: 50px;
+  h2 {
+    font-style: italic;
+    color: $tomato;
+  }
+  h3 {
+    color: $blue52;
+  }
+  .btn-edit-park {
+    margin-right: 15px;
+  }
+}
+
+li {
+  list-style-type: none;
+}
+
+/* social-button-share */
+.social-share-button .ssb-icon {
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: 44px 46px !important;
+  display: inline-block !important;
+  height: 30px !important;
+  width: 40px !important;
+}
+.social-share-button {
+  right: 1px;
+  top: 0px;
+}
+
+#latitude, #longitude {
+  display: none;
 }
