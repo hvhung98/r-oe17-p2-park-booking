@@ -34,4 +34,5 @@ Rails.application.configure do
     password: ENV["GMAIL_PASSWORD"]
   }
   config.middleware.use I18n::JS::Middleware
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

@@ -29,28 +29,38 @@ RailsAdmin.config do |config|
 
   config.model "Order" do
     list do
-      include_fields :car_number, :price, :status, :type_booked, :created_at
+      exclude_fields :created_at, :updated_at
+      fields :orderable do
+        label "Tên bãi đỗ"
+      end
       fields :car_number do
         label "Biển số xe"
       end
-      fields :price do
-        label "Giá theo giờ"
+      fields :type_booked do
+        label "Thể loại đặt"
       end
       fields :status do
         label "Trạng thái"
       end
-      fields :type_booked do
-        label "Loại hóa đơn"
+      fields :month_booked do
+        label "Tháng đặt"
       end
-      fields :created_at do
-        label "Thời gian đặt"
+      fields :day_booked do
+        label "Ngày đặt"
+      end
+      fields :price do
+        label "Tổng giá"
+      end
+      fields :user do
+        label "Người đặt"
       end
     end
   end
 
   config.model "Parking" do
     list do
-      include_fields :name, :address, :description, :total_position, :time_open, :time_close
+      include_fields :name, :address, :description, :total_position, :time_open,
+        :time_close, :price
       fields :name do
         label "Tên bãi đỗ"
       end
@@ -69,6 +79,9 @@ RailsAdmin.config do |config|
       fields :time_close do
         label "Thời gian đóng cửa"
       end
+      fields :price do
+        label "Giá tiền"
+      end
     end
   end
 
@@ -80,24 +93,6 @@ RailsAdmin.config do |config|
       end
       fields :users do
         label "Người dùng"
-      end
-    end
-  end
-
-  config.model "Review" do
-    list do
-      exclude_fields :created_at, :updated_at, :id
-      fields :rating do
-        label "Đánh giá"
-      end
-      fields :comment do
-        label "Nhận xét"
-      end
-      fields :user do
-        label "Người đánh giá"
-      end
-      fields :parking do
-        label "Bãi đỗ xe"
       end
     end
   end
@@ -123,6 +118,8 @@ RailsAdmin.config do |config|
     delete do
       only ["Role"]
     end
-    show_in_app
+    show_in_app do
+      only ["User"]
+    end
   end
 end

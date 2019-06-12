@@ -26,6 +26,22 @@ FactoryBot.define do
     price {200000}
   end
 
+  factory :parking_test2, class: Parking do
+    id {2}
+    name {"Bai do 2"}
+    waiting_time {"30 phut"}
+    description {"Chat luong tot"}
+    total_position {100}
+    avail_position {100}
+    longitude {21.028011}
+    latitude {105.804017}
+    address {"Cau Giay, Ha Noi"}
+    time_open {Time.now}
+    time_close {Time.now}
+    status {"Mở cửa"}
+    price {200000}
+  end
+
   factory :invalid_parking_test, class: Parking do
     name {""}
     waiting_time {"50 phut"}

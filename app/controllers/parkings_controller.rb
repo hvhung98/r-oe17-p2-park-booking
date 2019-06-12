@@ -25,6 +25,9 @@ class ParkingsController < ApplicationController
   end
 
   def show
+    if !@user.current_user?(current_user) && current_user
+      @orders = current_user.orders.find_order(@parking.id, t("parkings.parking"))
+    end
   end
 
   def edit
@@ -32,8 +35,7 @@ class ParkingsController < ApplicationController
 
   def update
     if @parking.update(parking_params)
-      @parking.status = params[:parking][:status]
-      @parking.save
+      @parking.update status: params[:parking][:status]
       flash[:success] = t("parkings.update_park_success")
       redirect_to user_parking_path(@user, @parking)
     else
@@ -74,7 +76,7 @@ class ParkingsController < ApplicationController
   end
 
   def set_current_user
-    return if @user.current_user?(current_user)
+    return if @user == current_user
     flash[:danger] = t("parkings.not_have_access_rights")
     redirect_to root_url
   end

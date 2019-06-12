@@ -10,18 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_092922) do
+ActiveRecord::Schema.define(version: 2019_06_08_173119) do
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "parking_id"
-    t.bigint "user_id"
-    t.string "status"
-    t.string "type_booked"
+    t.string "orderable_type"
+    t.bigint "orderable_id"
     t.string "car_number"
+    t.string "type_booked"
+    t.integer "status", default: 0
+    t.string "month_booked", default: ""
+    t.datetime "day_booked"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["parking_id"], name: "index_orders_on_parking_id"
+    t.bigint "user_id"
+    t.index ["orderable_type", "orderable_id"], name: "index_orders_on_orderable_type_and_orderable_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -52,10 +55,10 @@ ActiveRecord::Schema.define(version: 2019_06_03_092922) do
   end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "parking_id"
     t.integer "rating"
     t.text "comment"
+    t.bigint "user_id"
+    t.bigint "parking_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["parking_id"], name: "index_reviews_on_parking_id"
@@ -80,12 +83,15 @@ ActiveRecord::Schema.define(version: 2019_06_03_092922) do
     t.string "phone_number", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_img_file_name"
+    t.string "user_img_content_type"
+    t.integer "user_img_file_size"
+    t.datetime "user_img_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
-  add_foreign_key "orders", "parkings"
   add_foreign_key "orders", "users"
   add_foreign_key "parkings", "users"
   add_foreign_key "reviews", "parkings"

@@ -1,11 +1,14 @@
 class User < ApplicationRecord
+  before_save :downcase_email
   belongs_to :role
   has_one :parking
-  has_many :orders, dependent: :destroy
-  has_many :parkings, through: :orders
+  has_many :orders
+  has_many :parkings, through: :orders, source: :orderable, source_type: "Parking"
   has_many :reviews
+  has_many :parkings, through: :reviews
+  has_attached_file :user_img, styles: {user_index: "250x250>", user_show: "240x160>"},
+    default_url: "4.png"
 
-  before_save :downcase_email
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable,
     :omniauthable, omniauth_providers: [:google_oauth2]
@@ -15,6 +18,7 @@ class User < ApplicationRecord
   validates :email, presence: true, length:
     { maximum: Settings.email_max }, format: { with: VALID_EMAIL_REGEX },
       uniqueness: { case_sensitive: false }
+  validates_attachment_content_type :user_img, content_type: /\Aimage\/.*\z/
 
   class << self
     def from_omniauth(access_token)

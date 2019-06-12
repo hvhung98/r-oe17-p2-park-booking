@@ -12,7 +12,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :name
       t.integer :score, default: 10
       t.string :phone_number, default: ""
-
       t.timestamps null: false
     end
 

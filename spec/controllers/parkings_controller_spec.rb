@@ -8,7 +8,10 @@ RSpec.describe ParkingsController, type: :controller do
     sign_in user
   }
   describe "before_action" do
-    it {is_expected.to use_before_action(:set_user)}
+    it {is_expected.to use_before_action :set_user}
+    it {is_expected.to use_before_action :set_parking}
+    it {is_expected.to use_before_action :authenticate_user!}
+    it {is_expected.to use_before_action :set_current_user}
   end
 
   describe "GET parkings#index" do

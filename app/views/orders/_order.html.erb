@@ -1,0 +1,44 @@
+<tr>
+  <% if class_name @orderable, t("users.user") %>
+    <td><%= link_to Parking.find_by(id: order.orderable_id).name,
+      user_parking_path(Parking.find_by(id: order.orderable_id).user,
+        Parking.find_by(id: order.orderable_id)) %></td>
+  <% else %>
+    <td><%= link_to order.user.name, order.user %></td>
+  <% end %>
+  <td><%= order.type_booked %></td>
+  <td><%= deadline_day(order, Parking.find_by(id: order.orderable_id)).getlocal(t "orders.time_zone") %></td>
+  <% if order.type_booked == t("orders.date_booked") %>
+    <td><%= order.day_booked.getlocal(t "orders.time_zone") %></td>
+  <% else %>
+    <td><%= order.month_booked %></td>
+  <% end %>
+  <td><%= order.price %></td>
+  <% if class_name @orderable, t("users.user") %>
+    <% if order.booked? %>
+      <td><%= t "orders.booked" %></td>
+    <% elsif order.sending? %>
+      <td><%= t "orders.sending" %></td>
+    <% elsif order.sended? %>
+      <td><%= t "orders.sended" %></td>
+    <% else %>
+      <td><%= t "orders.canceled" %></td>
+    <% end %>
+  <% else %>
+    <td>
+      <%= form_for [@orderable, order] do |f| %>
+        <% if order.booked? %>
+          <%= f.text_field :status, value: order.status, class: "status_order" %>
+          <%= f.submit t("orders.booked"), class: "btn btn-info" %>
+        <% elsif order.sending? %>
+          <%= f.text_field :status, value: order.status, class: "status_order" %>
+          <%= f.submit t("orders.sending"), class: "btn btn-success" %>
+        <% elsif order.sended? %>
+          <%= t "orders.sended" %>
+        <% else %>
+          <%= t "orders.canceled" %>
+        <% end %>
+      <% end %>
+    </td>
+  <% end %>
+</tr>
