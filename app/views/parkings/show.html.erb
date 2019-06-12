@@ -3,6 +3,9 @@
   <div id="detail_park" class="col-md-5 col-lg-5">
     <h2 id="park_name"><%= @parking.name %></h2><br>
     <%= social_share_button_tag(@parking.name) %>
+    <h3><%= t "reviews.average_review" %></h3>
+    <div class="average-review-rating" data-score="<%= @average_review %>"></div>
+    <span><%= t("reviews.based_on") + "#{@parking.reviews.count}" + t("reviews.reviews") %></span><br><br>
     <h3><%= t "parkings.address" %><%= @parking.address %></h3><br>
     <h4><%= t "parkings.waiting_time" %><%= @parking.waiting_time %></h4><br>
     <h4><%= t "parkings.description" %><%= @parking.description %></h4><br>
@@ -21,6 +24,10 @@
         <%= link_to t("orders.new_order") + " - #{@parking.avail_position}",
           new_parking_order_path(@parking), class: "btn btn-info" %><br>
       <% end %>
+      <% if user_signed_in? && authorize_add_rv(@review_exist, @order_exist) %>
+        <br><%= link_to t("reviews.review"), new_parking_review_path(@parking),
+          class: "btn btn-danger" %><br>
+      <% end %>
     <% else %>
       <%= link_to edit_user_parking_path(@user, @parking),
         class: "btn btn-primary btn-edit-park" do %>
@@ -36,6 +43,10 @@
       <% end %>
     <% end %>
   </div>
-</div>
+</div><hr>
+<%= render @reviews %>
+<%= paginate @reviews, theme: "twitter-bootstrap-3" %>
 
 <%= javascript_include_tag "map_show", "data-turbolinks-track": "reload" %>
+<%= javascript_include_tag "rv_show_rating", "data-turbolinks-track": "reload" %>
+

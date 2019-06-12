@@ -1,0 +1,21 @@
+<div class="mainbox col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <div class="panel-title"><%= title %></div>
+    </div>
+    <div class="panel-body">
+      <%= form_for [parking, review] do |f| %>
+        <div id="rating-form">
+          <%= f.label :rating, t("reviews.review") %>
+        </div><br>
+        <%= f.label :comment, t("reviews.comment") %>
+        <%= f.text_field :comment, class: "form-control" %><br>
+        <%= f.submit t("parkings.confirm"), class: "btn btn-primary" %>
+        <%= link_to t("parkings.cancel"), user_parking_path(parking.user, parking),
+          class: "btn btn-warning btn-cancel" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= javascript_include_tag "rv_form_rating", "data-turbolinks-track": "reload" %>

@@ -5,7 +5,7 @@ class ParkingsController < ApplicationController
   before_action :set_current_user, only: %i(new edit)
 
   def index
-    @parkings = Parking.all.order_by_time.page(params[:page])
+    @parkings = Parking.all.order_by_time.page params[:page]
   end
 
   def new
@@ -27,6 +27,14 @@ class ParkingsController < ApplicationController
   def show
     if !@user.current_user?(current_user) && current_user
       @orders = current_user.orders.find_order(@parking.id, t("parkings.parking"))
+      @order_exist = current_user.orders.find_order(@parking.id, t("parkings.parking")).first
+      @review_exist = @parking.reviews.find_by user_id: current_user.id
+    end
+    if @parking.reviews.blank?
+      @average_review = 0
+    else
+      @reviews = @parking.reviews.order_by_time.page params[:page]
+      @average_review = @parking.reviews.average(:rating).round(2)
     end
   end
 
@@ -62,7 +70,7 @@ class ParkingsController < ApplicationController
   end
 
   def set_user
-    @user = User.find_by(id: params[:user_id])
+    @user = User.find_by id: params[:user_id]
     return if @user
     flash[:danger] = t("users.not_find_user")
     redirect_to root_url

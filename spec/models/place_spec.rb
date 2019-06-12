@@ -16,4 +16,12 @@ RSpec.describe Place, type: :model do
     it {is_expected.to have_db_column(:latitude).of_type(:decimal)}
   end
 
+  describe "scope" do
+    before :each do
+      @place = Place.create latitude: 21.0012406, longitude: 105.7938073
+    end
+    it "find_place" do
+      expect(Place.all.find_place("21.0012406", "105.7938073")).to eq [@place]
+    end
+  end
 end

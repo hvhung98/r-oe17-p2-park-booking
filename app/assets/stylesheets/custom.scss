@@ -524,3 +524,20 @@ li {
 .status_order {
   display: none;
 }
+
+/*Review*/
+
+.user_img_rv {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.add_rv {
+  color: red;
+}
+
+.delete_rv {
+  color: red;
+  margin-left: 10px;
+}

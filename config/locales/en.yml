@@ -142,6 +142,23 @@ en:
     time_booked: "Thời gian đặt"
     total_price: "Tổng tiền"
     status_order: "Trạng thái"
+  reviews:
+    add_success: "Thêm đánh giá thành công"
+    add_failed: "Thêm đánh giá thất bại"
+    update_success: "Cập nhật đánh giá thành công"
+    update_failed: "Cập nhật đánh giá thất bại"
+    delete_success: "Xóa đánh giá thành công"
+    delete_failed: "Xóa đánh giá thất bại"
+    not_find_review: "Đánh giá không hợp lệ"
+    average_review: "Đánh giá trung bình: "
+    based_on: "(dựa trên "
+    reviews: " đánh giá)"
+    review: "Đánh giá"
+    comment: "Bình luận"
+    ago: " ago"
+    delete_review: "Xóa đánh giá"
+    edit_review: "Chỉnh sửa đánh giá"
+    add_review: "Thêm đánh giá"
   searches:
     no_result: "Không tìm thấy kết quả cho"
   time:

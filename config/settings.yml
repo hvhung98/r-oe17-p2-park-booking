@@ -6,3 +6,5 @@ price_min: 1
 pass_min: 6
 width_height_marker: 40
 distance_find_park: 10
+min_cr_cor: 0
+max_cr_cor: 7

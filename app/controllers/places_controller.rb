@@ -6,7 +6,7 @@ class PlacesController < ApplicationController
   def create
     @place = Place.find_place(params[:place][:latitude], params[:place][:longitude]).first
     if @place.nil?
-      @place = Place.create(place_params)
+      @place = Place.create place_params
       if @place.save
         redirect_to @place
       else
@@ -19,7 +19,7 @@ class PlacesController < ApplicationController
   end
 
   def show
-    @place = Place.find_by(id: params[:id])
+    @place = Place.find_by id: params[:id]
     if @place.nil?
       flash[:danger] = t("places.not_find_place")
     else

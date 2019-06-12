@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 
   def index
     if check_role_index
-      @orders = @orderable.orders.order_by_time.page(params[:page])
+      @orders = @orderable.orders.order_by_time.page params[:page]
       if class_name(@orderable, t("parkings.parking"))
         @orders.each do |order|
           if deadline_day(order, @orderable) < Time.now && order.booked?

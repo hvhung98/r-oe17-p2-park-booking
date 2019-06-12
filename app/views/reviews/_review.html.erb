@@ -1,0 +1,18 @@
+<div class="media">
+  <div class="media-left">
+    <%= image_tag(review.user.user_img.url(:user_show), class: "user_img_rv") %>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%= link_to review.user.name, review.user %></h4>
+    <p class="review-rating" data-score="<%= review.rating %>"></p>
+    <p><%= review.comment %></p>
+    <small class="text-info"><%= time_ago_in_words(review.created_at) %><%= t("reviews.ago") %></small><br><br>
+    <% if can? :update, review %>
+    <%= link_to t("users.edit"), edit_parking_review_path(@parking, review),
+      class: "add_rv" %>
+    <% end %>
+    <% if can? :destroy, review %>
+    <%= link_to t("reviews.delete_review"), parking_review_path(@parking, review), method: :delete, data: {confirm: t("parkings.confirm_del_park")}, class: "delete_rv" %>
+    <% end %>
+  </div>
+</div><br><br>

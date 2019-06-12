@@ -5,7 +5,6 @@ class Ability
     can :read, Parking
     can :create, Order
     if user.present?
-      can :create, Parking
       can [:update, :destroy], Parking do |parking|
         parking.user == user
       end
@@ -15,6 +14,10 @@ class Ability
       end
       can :update, Order do |order|
         order.user == user
+      end
+
+      can [:update, :destroy], Review do |review|
+        review.user == user
       end
     end
   end
